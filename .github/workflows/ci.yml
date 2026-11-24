@@ -1,0 +1,31 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  firmware-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kinematics and odometry tests (host build)
+        run: |
+          g++ -std=c++11 -Wall -Wextra -Werror -Ifirmware/amr_base_teensy \
+              firmware/test/test_kinematics.cpp -o test_base
+          ./test_base
+
+  ros2-build:
+    runs-on: ubuntu-latest
+    container: ros:humble
+    steps:
+      - uses: actions/checkout@v4
+      - name: colcon build
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          cd ros2
+          colcon build --event-handlers console_direct+
+      - name: Check launch files parse
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          for f in ros2/src/*/launch/*.launch.py; do python3 -m py_compile "$f"; done

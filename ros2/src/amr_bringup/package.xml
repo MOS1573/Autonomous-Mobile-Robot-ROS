@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>amr_bringup</name>
+  <version>1.0.0</version>
+  <description>Robot bringup: micro-ROS agent, RPLIDAR, robot model and EKF odometry fusion.</description>
+  <maintainer email="139066914+MOS1573@users.noreply.github.com">Mohamed Sroor</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>amr_description</exec_depend>
+  <exec_depend>micro_ros_agent</exec_depend>
+  <exec_depend>rplidar_ros</exec_depend>
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>teleop_twist_keyboard</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

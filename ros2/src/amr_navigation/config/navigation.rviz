@@ -1,0 +1,84 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+- Class: rviz_common/Tool Properties
+  Name: Tool Properties
+Visualization Manager:
+  Class: ''
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 0.5
+    Plane Cell Count: 20
+  - Class: rviz_default_plugins/RobotModel
+    Name: RobotModel
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /robot_description
+  - Class: rviz_default_plugins/TF
+    Name: TF
+    Enabled: false
+  - Class: rviz_default_plugins/LaserScan
+    Name: LaserScan
+    Enabled: true
+    Topic:
+      Value: /scan
+      Reliability Policy: Best Effort
+    Size (m): 0.03
+    Color Transformer: FlatColor
+    Color: 255; 0; 0
+  - Class: rviz_default_plugins/Map
+    Name: Map
+    Enabled: true
+    Topic:
+      Value: /map
+      Durability Policy: Transient Local
+    Alpha: 0.8
+  - Class: rviz_default_plugins/Map
+    Name: Global Costmap
+    Enabled: false
+    Topic:
+      Value: /global_costmap/costmap
+    Color Scheme: costmap
+  - Class: rviz_default_plugins/Map
+    Name: Local Costmap
+    Enabled: true
+    Topic:
+      Value: /local_costmap/costmap
+    Color Scheme: costmap
+    Alpha: 0.5
+  - Class: rviz_default_plugins/ParticleCloud
+    Name: AMCL Particles
+    Enabled: true
+    Topic:
+      Value: /particle_cloud
+      Reliability Policy: Best Effort
+  - Class: rviz_default_plugins/Path
+    Name: Global Plan
+    Enabled: true
+    Topic:
+      Value: /plan
+    Color: 25; 255; 0
+  Global Options:
+    Fixed Frame: map
+    Background Color: 48; 48; 48
+    Frame Rate: 30
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/SetInitialPose
+    Topic:
+      Value: /initialpose
+  - Class: rviz_default_plugins/SetGoal
+    Topic:
+      Value: /goal_pose
+  - Class: rviz_default_plugins/Measure
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Scale: 80
+      X: 0
+      Y: 0
